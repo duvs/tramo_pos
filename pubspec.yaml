@@ -33,6 +33,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
   get_it: ^8.2.0
   hydrated_bloc: ^10.1.1
   path_provider: ^2.1.5
