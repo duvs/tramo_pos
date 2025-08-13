@@ -1,14 +1,4 @@
 class Product {
-  final String id;
-  final String name;
-  final String? barcode;
-  final double salePrice;
-  final double? costPrice;
-  final String? imagePath;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final bool isActive;
-
   Product({
     required this.id,
     required this.name,
@@ -20,6 +10,15 @@ class Product {
     required this.updatedAt,
     required this.isActive,
   });
+  final String id;
+  final String name;
+  final String? barcode;
+  final double salePrice;
+  final double? costPrice;
+  final String? imagePath;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final bool isActive;
 
   Product copyWith({
     String? id,

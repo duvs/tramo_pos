@@ -5,6 +5,6 @@ class ProductListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Mis Productos')));
+    return Scaffold(appBar: AppBar(title: const Text('Mis Productos')));
   }
 }
