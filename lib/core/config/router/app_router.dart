@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tramo_pos/features/auth/presentation/sign_in_page.dart';
+import 'package:tramo_pos/features/auth/presentation/splash_page.dart';
 import 'package:tramo_pos/features/product/presentation/list/product_list_page.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -6,6 +8,8 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 abstract class AppRoutes {
   AppRoutes._();
 
+  static const splash = '/';
+  static const signIn = '/signin';
   static const products = '/products';
   static const productsNew = '/products/new';
   static const productEdit = '/products/edit';
@@ -17,6 +21,12 @@ class AppRouter {
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case AppRoutes.splash:
+        return MaterialPageRoute(builder: (_) => const SplashPage(), settings: settings);
+
+      case AppRoutes.signIn:
+        return MaterialPageRoute(builder: (_) => const SignInPage(), settings: settings);
+
       case AppRoutes.products:
         return MaterialPageRoute(builder: (_) => const ProductListPage(), settings: settings);
 

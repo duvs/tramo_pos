@@ -19,7 +19,7 @@ class App extends StatelessWidget {
       ],
       theme: appTheme,
       navigatorKey: navigatorKey,
-      initialRoute: AppRoutes.products,
+      initialRoute: AppRoutes.splash,
       onGenerateRoute: AppRouter.onGenerateRoute,
     );
   }
