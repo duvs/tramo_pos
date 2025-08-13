@@ -1,3 +1,6 @@
 import 'package:flutter/material.dart';
 
-final appTheme = ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.red));
+final appTheme = ThemeData(
+  useMaterial3: true,
+  colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+);
