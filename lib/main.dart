@@ -8,7 +8,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
   await initDependencies();
-  runApp(BlocProvider.value(value: getIt<AuthCubit>(), child: const App()));
+  runApp(BlocProvider(create: (_) => getIt<AuthCubit>(), child: const App()));
 }
 
 class AppBlocObserver extends BlocObserver {
