@@ -31,6 +31,6 @@ Future<void> initDependencies() async {
   );
 
   // Bloc
-  getIt.registerLazySingleton<AuthCubit>(() => AuthCubit(getIt<AuthRepository>()));
+  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt<AuthRepository>()));
   getIt.registerFactory<SignInFormCubit>(() => SignInFormCubit(getIt<AuthRepository>()));
 }
