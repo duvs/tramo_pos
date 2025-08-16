@@ -1,5 +1,5 @@
-class User {
-  User({
+class Profile {
+  Profile({
     required this.id,
     required this.firstName,
     required this.lastName,
