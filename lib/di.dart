@@ -9,6 +9,10 @@ import 'package:tramo_pos/features/auth/data/source/auth_supabase_datasource.dar
 import 'package:tramo_pos/features/auth/domain/repository/auth_repository.dart';
 import 'package:tramo_pos/features/auth/presentation/authCubit/auth_cubit.dart';
 import 'package:tramo_pos/features/auth/presentation/signInCubit/sign_in_form_cubit.dart';
+import 'package:tramo_pos/features/profile/data/repository/profile_repository_impl.dart';
+import 'package:tramo_pos/features/profile/data/source/profile_supabase_datasource.dart';
+import 'package:tramo_pos/features/profile/domain/repository/profile_repository.dart';
+import 'package:tramo_pos/features/profile/presentation/profileDisplayCubit/profile_display_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -33,4 +37,14 @@ Future<void> initDependencies() async {
   // Bloc
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt<AuthRepository>()));
   getIt.registerFactory<SignInFormCubit>(() => SignInFormCubit(getIt<AuthRepository>()));
+
+  // Profile
+  // Datasource and repo
+  getIt.registerLazySingleton(() => ProfileSupabaseDatasource(getIt<SupabaseClient>()));
+  getIt.registerLazySingleton<ProfileRepository>(
+    () => ProfileRepositoryImpl(getIt<ProfileSupabaseDatasource>()),
+  );
+
+  // Bloc
+  getIt.registerFactory(() => ProfileDisplayCubit(getIt<ProfileRepository>()));
 }
