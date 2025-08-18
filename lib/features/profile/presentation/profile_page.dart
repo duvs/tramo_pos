@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tramo_pos/core/config/router/app_router.dart';
-import 'package:tramo_pos/core/helper/app_navigator.dart';
 import 'package:tramo_pos/di.dart';
 import 'package:tramo_pos/features/auth/presentation/authCubit/auth_cubit.dart';
 import 'package:tramo_pos/features/profile/domain/entities/profile.dart';
@@ -114,6 +113,7 @@ class _ProfileContent extends StatelessWidget {
         const SizedBox(height: 24),
         FilledButton.icon(
           onPressed: () {
+            final navigator = Navigator.of(context);
             final auth = context.read<AuthCubit>();
 
             showDialog<bool>(
@@ -135,8 +135,8 @@ class _ProfileContent extends StatelessWidget {
             ).then((confirm) {
               if (confirm == true) {
                 auth.signOut().whenComplete(() {
-                  if (!context.mounted) return;
-                  context.pushReplacementNamed(AppRoutes.signIn);
+                  if (!navigator.mounted) return;
+                  navigator.pushNamedAndRemoveUntil(AppRoutes.signIn, (_) => false);
                 });
               }
             });
