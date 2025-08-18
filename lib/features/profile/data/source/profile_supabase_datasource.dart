@@ -7,7 +7,7 @@ class ProfileSupabaseDatasource {
   ProfileSupabaseDatasource(this._sb);
   final SupabaseClient _sb;
 
-  static const String table = 'users';
+  static const String table = 'profiles';
 
   Future<Profile> fetchMe(String userId) async {
     final data = await _sb.from(table).select().eq('id', userId).limit(1).single();
