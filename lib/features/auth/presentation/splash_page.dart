@@ -22,7 +22,7 @@ class _SplashPageState extends State<SplashPage> {
   void _decideNext() {
     final authState = context.read<AuthCubit>().state;
 
-    final next = (authState is AuthAuthenticated) ? AppRoutes.products : AppRoutes.signIn;
+    final next = (authState is AuthAuthenticated) ? AppRoutes.home : AppRoutes.signIn;
 
     Future.microtask(() {
       if (!mounted || _navigated) return;
